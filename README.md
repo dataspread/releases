@@ -15,7 +15,11 @@ Like traditional spreadsheet software, DataSpread will auto-save spreadsheet boo
 Like traditional spreadsheet software, DataSpread supports the use of 225+ spreadsheet functions, along with formatting and styling operations. It also supports row and column operations like insert, delete, cut, copy, and paste; during insertion and deletion, formulae are updated as is the case in traditional spreadsheet software.
 
 ### Key Design Innovations
-DataSpread combines a _flexible hybrid data model_ to represent spreadsheet data within a database with _positional indexing techniques_ to both locate data by position, and keeping it up-to-date as the data is updated. DataSpread also employs a _LRU caching mechanism_ to retrieve and keep in memory data from the database on demand. DataSpread also employs _speculative fetching_ to fetch additional data beyond the user's current spreadsheet window. 
+* DataSpread employs a _flexible hybrid data model_ to represent spreadsheet data within a database. 
+* DataSpread uses _positional indexing techniques_ to both locate data by position, and keep it up-to-date as the data is updated. 
+* DataSpread also employs a _LRU caching mechanism_ to retrieve and keep in memory data from the database on demand. 
+* DataSpread also employs _speculative fetching_ to fetch additional data beyond the user's current spreadsheet window. 
+
 
 
 ### System Requirements
