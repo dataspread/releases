@@ -8,7 +8,7 @@ The current version is 0.1.
 ### Features
 DataSpread is built using [PostgreSQL][postgressite] and [ZKSpreadsheet][zksite], an open-source web-based spreadsheet tool.
 
-DataSpread's version 0.1 enables users to scale to billions of cells and return results for common spreadsheet operations within seconds. It does so via on-demand loading of spreadsheet data.
+DataSpread's version 0.1 enables users to scale to **billions of cells and return results for common spreadsheet operations within seconds**. It does so via on-demand loading of spreadsheet data.
 
 
 Like traditional spreadsheet software, DataSpread supports standard spreadsheet book and sheet operations like Load, Rename, Delete, and Import (via XLS and XLSX, and CSV). Any updates to the spreadsheets are automatically saved.
