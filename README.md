@@ -8,12 +8,16 @@ The current version is 0.1.
 ### Features
 DataSpread is built using [PostgreSQL][postgressite] and [ZKSpreadsheet][zksite], an open-source web-based spreadsheet tool.
 
-DataSpread's version 0.1 enables users to scale to billions of cells and return results for common spreadsheet operations within seconds. It does so via on-demand loading of spreadsheet data.
+DataSpread's version 0.1 enables users to scale to **billions of cells and return results for common spreadsheet operations within seconds**. It does so via on-demand loading of spreadsheet data.
 
 
-Like traditional spreadsheet software, DataSpread supports standard spreadsheet book and sheet  operations like Load, Rename, Delete, and Import (via XLS and XLSX, and CSV). Any updates to the spreadsheets are automatically saved.
+Like traditional spreadsheet software, DataSpread supports standard spreadsheet book and sheet operations like Load, Rename, Delete, and Import (via XLS and XLSX, and CSV). Any updates to the spreadsheets are automatically saved.
 
-Like traditional spreadsheet software, DataSpread supports the use of 225+ spreadsheet functions, along with formatting and styling operations. It also supports row and column operations like insert, delete, cut, copy, and paste; during insertion and deletion, formulae are updated as is the case in traditional spreadsheet software.
+Like traditional spreadsheet software, DataSpread supports the use of 225+ spreadsheet functions, along with formatting and styling operations. It also supports row and column operations like insert, delete, cut, copy, and paste; during insertion and deletion, formulae are updated as is the case in traditional spreadsheet software. 
+
+It supports all these operations while scaling to *arbitrarily large* spreadsheets.
+
+In future releases, DataSpread will support SQL on the spreadsheet frontend, along with other relational algebra-based interactions. It will also support joint formula evaluation and optimization. 
 
 ### Key Design Innovations
 
@@ -28,7 +32,7 @@ Like traditional spreadsheet software, DataSpread supports the use of 225+ sprea
 
 You can directly use DataSpread via our cloud-hosted [site][siteinfo].
 
-To host DataSpread locally you can either use one of the pre-build war file, available here, or build the war file yourself from the source.
+To host DataSpread locally you can either use one of the pre-build war files, available [here][warlink], or build the war file yourself from the source.
 
 ### Required Software
 
@@ -43,7 +47,7 @@ To host DataSpread locally you can either use one of the pre-build war file, ava
 
 1. Clone the DataSpread repository. Alternatively, you can download the source as a zip. 
 
-2. Use Ant to build the war file.  After the build completes the war is available at out/artifacts/DataSpread_war. 
+2. Use Ant to build the `war` file.  After the build completes the war is available at `out/artifacts/DataSpread_war`. 
 
 	```
 	ant
@@ -52,11 +56,11 @@ To host DataSpread locally you can either use one of the pre-build war file, ava
 ### Deploying DataSpread locally. 
 
 
-1. Install PostgresSQL.  Create a database and an user who has access to the database.  Note the database name, user name and password.  
+1. Install PostgresSQL.  Create a database and an user who has access to the database.  Note the database name, username and password.  
 
 2. Install Apache Tomcat. 
 
-3. Update web.xml in Tomcat by adding following:
+3. Update web.xml in Tomcat by adding the following text:
 
 	```
 	<listener>
@@ -64,7 +68,7 @@ To host DataSpread locally you can either use one of the pre-build war file, ava
 	</listener>
 	```
 
-4. Update context.xml in Tomcat by adding following:
+4. Update context.xml in Tomcat by adding the following text:
 	```
 	<Resource name="jdbc/ibd" auth="Container"
 	          type="javax.sql.DataSource" driverClassName="org.postgresql.Driver"
@@ -75,11 +79,11 @@ To host DataSpread locally you can either use one of the pre-build war file, ava
 
 	Replace `<database_name>`, `<username>` and `<password>` with your PostgreSQL's database name, user name and password respectively.
 
-5. Copy postgresql-9.4.1208 to Tomcat lib. It is crucial to have the exact version of this file. 
+5. Copy `postgresql-9.4.1208` to Tomcat lib. It is crucial to have the exact version of this file. 
  
 6. Deploy the war file within Tomcat. 
 
-7. Now you are ready to run the program. Visit the url where you have deployed the application. 
+7. Now you are ready to run the program. Visit the url (listed in `context.xml` above) where you have deployed the application. 
 
 
 License
@@ -94,3 +98,4 @@ MIT
 [siteinfo]: http://kite.cs.illinois.edu:8080
 [zksite]: https://www.zkoss.org/product/zkspreadsheet
 [postgressite]: https://www.postgresql.org/
+[warlink]: http://google.com
