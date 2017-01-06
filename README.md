@@ -63,15 +63,14 @@ To host DataSpread locally you can either use one of the pre-build war files, av
 
 4. Update the Tomcat configuration. You need to update the following two files, which are present in `conf` folder under `TOMCAT_HOME` folder.  
 
-a. Update `web.xml` by adding the following text at the end of the file before the closing XML tag.   
+    1. `web.xml` by adding the following text at the end of the file before the closing XML tag.   
 
 	```
 	<listener>
 	    <listener-class>org.zkoss.zss.model.impl.DBHandler</listener-class>
 	</listener>
 	```
-
-b. Update `context.xml` by adding the following text at the end of the file before the closing XML tag.   
+    2. `context.xml` by adding the following text at the end of the file before the closing XML tag.   
 
 	```
 	<Resource name="jdbc/ibd" auth="Container"
@@ -87,13 +86,14 @@ b. Update `context.xml` by adding the following text at the end of the file befo
  
 6. Deploy the war file within Tomcat. This can be done via Tomcat's web interface or by manually copying the war file in the `webapps` folder under `TOMCAT_HOME`.
 
-7. Now you are ready to run the program. Visit the url where Tomcat is installed. It will be typically `localhost:8080/DataSpread_war/` for a local install.
+7. Now you are ready to run the program. Visit the url where Tomcat is installed. It will be typically [http://localhost:8080/DataSpread_war/][install_loc] for a local install.
 
 
 License
 ----
 MIT
 
+[install_loc]: http://localhost:8080/DataSpread_war/
 [tomcat_install]: https://www.ntu.edu.sg/home/ehchua/programming/howto/Tomcat_HowTo.html
 [postgre_install]: https://wiki.postgresql.org/wiki/Detailed_installation_guides
 [Postgres.app]: http://postgresapp.com
