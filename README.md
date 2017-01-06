@@ -39,15 +39,15 @@ To host DataSpread locally you can either use one of the pre-build war files, av
 * [Apache Ant][ant] >= 1.6
 * [Java Platform (JDK)][java] >= 8
 * [PostgreSQL][posrgres] >= 9.5
-* [PostgreSQL JDBC driver][jdbc] 9.4.1208
+* [PostgreSQL JDBC driver][jdbc] - 9.4.1208
 * [Apache Tomcat][tomcat] >= 8.5.4
 
 
 ### Building Instructions (To generate a war file)
 
-1. Clone the DataSpread repository. Alternatively, you can download the source as a zip. 
+1. Clone the DataSpread repository. Alternatively, you can download the source as a zip or tar.gz. 
 
-2. Use Ant to build the `war` file.  After the build completes the war is available at `out/artifacts/DataSpread_war`. 
+2. Use Ant to build the `war` file using the following command.  After the build completes the war is available at `out/artifacts/DataSpread_war`. 
 
 	```
 	ant
@@ -55,12 +55,15 @@ To host DataSpread locally you can either use one of the pre-build war files, av
 
 ### Deploying DataSpread locally. 
 
+1. Install PostgreSQL database. [Postgres.app][Postgres.app] is a quick way to get PostgreSQL working on Mac. For other operating systems check out the guides [here][postgre_install].  
 
-1. Install PostgresSQL.  Create a database and an user who has access to the database.  Note the database name, username and password.  
+2. Create a database and an user who has access to the database.  Note the database name, username and password. Typically when you have PostgreSQL installed locally the password is blank.  
 
-2. Install Apache Tomcat. 
+3. Install Apache Tomcat. You can use the guide [here][tomcat_install]. Make a note of the directory where tomcat is installed. This is known as `TOMCAT_HOME` in all documentation. 
 
-3. Update web.xml in Tomcat by adding the following text:
+4. Update the Tomcat configuration. You need to update the following two files, which are present in `conf` folder under `TOMCAT_HOME` folder.  
+
+a. Update `web.xml` by adding the following text at the end of the file before the closing XML tag.   
 
 	```
 	<listener>
@@ -68,7 +71,8 @@ To host DataSpread locally you can either use one of the pre-build war files, av
 	</listener>
 	```
 
-4. Update context.xml in Tomcat by adding the following text:
+b. Update `context.xml` by adding the following text at the end of the file before the closing XML tag.   
+
 	```
 	<Resource name="jdbc/ibd" auth="Container"
 	          type="javax.sql.DataSource" driverClassName="org.postgresql.Driver"
@@ -79,17 +83,20 @@ To host DataSpread locally you can either use one of the pre-build war files, av
 
 	Replace `<database_name>`, `<username>` and `<password>` with your PostgreSQL's database name, user name and password respectively.
 
-5. Copy `postgresql-9.4.1208` to Tomcat lib. It is crucial to have the exact version of this file. 
+5. Copy `postgresql-9.4.1208` (Download from [here][jdbc]) to `lib` folder under `TOMCAT_HOME`.  It is crucial to have the exact version of this file. 
  
-6. Deploy the war file within Tomcat. 
+6. Deploy the war file within Tomcat. This can be done via Tomcat's web interface or by manually copying the war file in the `webapps` folder under `TOMCAT_HOME`.
 
-7. Now you are ready to run the program. Visit the url (listed in `context.xml` above) where you have deployed the application. 
+7. Now you are ready to run the program. Visit the url where Tomcat is installed. It will be typically `localhost:8080/DataSpread_war/` for a local install.
 
 
 License
 ----
 MIT
 
+[tomcat_install]: https://www.ntu.edu.sg/home/ehchua/programming/howto/Tomcat_HowTo.html
+[postgre_install]: https://wiki.postgresql.org/wiki/Detailed_installation_guides
+[Postgres.app]: http://postgresapp.com
 [jdbc]: https://jdbc.postgresql.org/download/postgresql-9.4.1208.jar
 [ant]: https://ant.apache.org/bindownload.cgi
 [tomcat]: http://tomcat.apache.org/download-80.cgi
@@ -98,4 +105,4 @@ MIT
 [siteinfo]: http://kite.cs.illinois.edu:8080
 [zksite]: https://www.zkoss.org/product/zkspreadsheet
 [postgressite]: https://www.postgresql.org/
-[warlink]: http://google.com
+[warlink]: https://github.com/dataspread/releases/releases
